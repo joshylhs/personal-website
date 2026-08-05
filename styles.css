@@ -1,0 +1,339 @@
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+@property --center-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: lightblue;
+}
+@property --outer-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: lightgreen;
+}
+:root {
+  font-family: 'Instrument Sans', helvetica;
+  font-weight:1;
+}
+
+/*          */
+/* content  */
+/*          */
+
+/* body */
+body {
+  background: radial-gradient(
+    var(--center-color), 
+    var(--outer-color), 
+    var(--center-color));
+  animation: back 5s ease-in-out infinite alternate;
+  height: 100%;
+  overflow: scroll;
+  margin:0
+}
+@keyframes back {
+  0% {
+    --outer-color:lightgreen;
+    --center-color:lightblue;
+  }
+
+  50% {
+    --center-color:lightgreen;
+    --outer-color:lightblue;
+  }
+
+  100% {
+    --outer-color:lightgreen;
+    --center-color:lightblue;
+  }
+}
+
+p {
+  white-space:pre-line;
+  font-family: Helvetica;
+}
+
+section {
+  padding: 3em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  /* margin: 0 0.5em; */
+  transition: 0.2s;
+}
+a:hover, a:focus {
+  color:pink;
+  padding:0.2em;
+  box-shadow: 0 0 1em pink;
+  transform: scale(1.1);
+  /* border-radius:100% */
+}
+a:active {
+  transform: scale(calc(1 / 1.1));
+}
+
+/* a:not(.nav-link)::before {
+    content: " ↗";
+    vertical-align: super
+    font-size: 0.8em;
+    font-weight:
+} */
+
+
+.underline {
+    text-decoration: underline auto;
+    text-underline-offset: 0.2em;
+}
+
+
+h1, h2 {
+  /* font-weight:1; */
+  /* box-shadow: 0 0 2em pink; */
+  letter-spacing: 0.02em;
+  color:whitesmoke;
+  font-weight:bold;
+}
+
+/* nav bar */
+header {
+  width:100%;
+  min-width: 400px;
+  margin:0 auto;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+
+  position: fixed;
+  transform: translateX(-50%);
+  top: 1em;
+  left: 50%;
+  background: transparent;
+  color: white;
+  box-sizing:border-box;
+
+  animation-timeline: scroll(root block);
+  animation-range: 50px 250px; 
+  animation-name: morphHeader;
+  animation-fill-mode: both;
+  z-index:999;
+}
+
+@keyframes morphHeader {
+  0% {
+    /* Layout properties at the very top of the scroll (0px) */
+    width: 100%;
+    padding: 1em;
+    border-radius: 1em;
+    top: 1em;
+    backdrop-filter: blur(0px); 
+  }
+
+  40% {
+    box-shadow: none;
+    background:transparent;
+    padding: 1em;
+    top: 1em;
+    /* backdrop-filter: blur(0px); */
+  }
+
+  100% {
+    /* Target shrunk layout properties once past the threshold1(150px+) */
+    width: 400px;
+    min-width: 400px;
+    padding: 1em;
+    background:#3f3f3f6e;
+    opacity: 1;
+    border-radius: 2em;
+    top: 1em;
+    /* box-shadow: 0 0 1em pink; */
+    backdrop-filter: blur(10px);
+
+  }
+}
+
+header > * {
+
+  display:flex;
+  align-items:center;
+}
+
+header a {
+    font-family: helvetica, san-serif !important;
+}
+#navbar {
+    display:flex;
+    gap: 0.5em;
+}
+
+a[href='#welcome-section'] {
+    font-family: 'Libertinus Math', 'Bitcount Prop Single', helvetica !important;
+    font-size: 1.2em;
+}
+
+
+/* welcome */
+#welcome-section h1 {
+    font-family: 'Bitcount Prop Single', helvetica ;
+    /* font-weight: 1 ; */
+}
+#welcome-section {
+    height:calc(100vh - 6em);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+#welcome-section::before {
+    content: "";
+    position: fixed;
+    background-size: 100vw 100vh ;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height:100vh;
+    z-index: -10; /* Keeps layer on top of all elements */
+    pointer-events: none; /* Clicking passes directly to your layout/buttons */
+
+    background-image: url(https://media.istockphoto.com/id/2218340634/vector/black-old-texture-with-grainy-noise-distressed-retro-photo-effect-grain-filter-overlay.jpg?s=612x612&w=0&k=20&c=hxUq4cLdxulnFxRcOIfz7JJQ5CFgSrXW2aj3Ky9oal0=);
+
+    /* Mix-blend-mode: overlay gives a subtle glassmorphism vibe with your pastel colors */
+    mix-blend-mode: overlay; 
+    opacity: 0.3; 
+}
+
+
+
+/* about */
+#about {
+  background: black;
+  color: white;
+  text-align:justify;
+  /* overflow: auto; */
+  display: grid;
+  grid-template-rows: auto auto; 
+  grid-template-areas: "about-title portrait" "about-para portrait";
+  gap: 0;
+  padding: 0;
+  padding-left:3em;
+}
+
+#about a {
+    font-family: 'Instrument Sans', helvetica;
+    font-weight:bold;
+}
+
+#about-title {
+  grid-area: about-title;
+  /* border:1px solid black; */
+  margin: 1.5em 0 0.5em 0;
+}
+
+#portrait {
+  grid-area: portrait;
+  margin-right: 0 !important;
+  margin-left:3em;
+  object-fit: cover;
+  height: 100%;
+}
+
+#about-para {
+  grid-area: about-para;
+  line-height:1.4em;
+  /* border:1px solid black; */
+  margin: 0;
+  padding-bottom:2em;
+  /* letter-spacing:0.5em; */
+}
+
+
+/* projects */
+#project-section {
+  position: relative;
+  background-color:black;
+  display:flex;
+  flex-flow: column wrap;
+  justify-content:center;
+  /* gap:1em; */
+  padding-top:0;
+  margin-top:12em;
+}
+
+#project-section * {
+  /* border: 1px solid purple */
+}
+
+#project-section h2 {
+  color:white;
+  width:fit-content;
+  margin:0;
+  margin-left:-2em;
+  margin-bottom:1em;
+  
+  padding: 0.25em 0.25em 0 0.5em;
+  border-top: 3px solid white 
+}
+
+.project-tiles {
+  display: flex;
+  flex-flow:row wrap;
+  justify-content:center;
+/* transition: all 0.3s ease-in-out; */
+  gap:2em;
+}
+
+.project-tile {
+    /* border: 1px solid black; */
+    box-shadow: 0 0 1em pink;
+    color:white;
+    width: 20em;
+    height:20em;
+    padding: 2em;
+    transition: all 0.5s ease-in-out;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-flow: column wrap;
+  
+}
+.project-tile:hover {
+
+  transform: scale(1.1);
+  border-radius:100%;
+  object-fit: contain;
+}
+
+.project-tile h3 {
+    text-align:center;
+    white-space:pre-line;
+
+}
+.project-tile p {
+    text-align:justify;
+
+}
+
+/* .project-tile a {
+
+} */
+
+/* footer */
+footer {
+    margin: 3em;
+
+}
+
+footer h2 {
+    text-align:center;
+}
+
+footer div {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
