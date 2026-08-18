@@ -33,25 +33,25 @@
 
 
       <section id='about'>
-        <h2 id='about-title'>/about-me</h2>
-        <img id='portrait' width=100 src="https://preview.redd.it/our-newest-rescue-fig-figlet-the-piglet-newton-v0-j6uptamwi8xe1.jpeg?width=640&crop=smart&auto=webp&s=1649d5c51530a407e96fe7e557a155213a9871e0">
-        <p id='about-para'>I'm a data science & analytics grad from NUS, and am exploring product and AI engineering (like pretty much everyone else out there)! Since my training was in data science (e.g. ML, NLP etc.), I found myself lacking immensely in development etc., hence I try to learn and pick fullstack up in my own time.
-        
-        Anyways, outside of work, you can find me baking pies (pizzas @<a href="https://www.instagram.com/specialonioncult/" target="_blank"><i class='fas fa-pizza-slice'></i><span class='underline'>specialonioncult</span></a>), bouldering or playing the piano! Recently started running (sigh...)
+        <div id ='about-container'>
+          <h2 id='about-title'>about</h2>
+          
+          <p id='about-para'>I'm a data science & analytics grad from NUS, and am exploring product and AI engineering (like pretty much everyone else out there)! Since my training was in data science (e.g. ML, NLP etc.), I found myself lacking immensely in development etc., hence I try to learn and pick fullstack up in my own time.
+          
+          Anyways, outside of work, you can find me baking pies (pizzas @<a href="https://www.instagram.com/specialonioncult/" target="_blank"><i class='fas fa-pizza-slice'></i><span class='underline'>specialonioncult</span></a>), bouldering or playing the piano! Recently started running (sigh...)
 
-        Also, I pretty much built this website myself for a freeCodeCamp project! (with minimal assistance from AI lol)
-        
-       
-
-        </p>
-         
+          Also, I pretty much built this website myself for a freeCodeCamp project! (with minimal assistance from AI lol)
+          </p>
+        </div>
+        <img id='portrait' src="feifeiNme.jpg" alt="Photo of Josh and his dog Feifei" /> 
+        <!-- https://preview.redd.it/our-newest-rescue-fig-figlet-the-piglet-newton-v0-j6uptamwi8xe1.jpeg?width=640&crop=smart&auto=webp&s=1649d5c51530a407e96fe7e557a155213a9871e0 -->
       </section>
 
       <!-- <hr> -->
 
       <section id='project-section'>
-        <h2>Projects</h2>
-        <div class='project-tiles'>
+        <h2>projects</h2>
+        <div class='tile-container'>
           <div class='project-tile'>
 
             <h3>Sit on It!</h3>
@@ -62,7 +62,7 @@
           <div class='project-tile'>
             <h3>Separating Signal from Spin: 
                 Political bias detection</h3>
-            <p><a href='https://docs.google.com/presentation/d/1_y-xKP9lkFjnJyqw6dmQyBm80iZTig3iX5IbIzEGZGc/edit?usp=sharing' target='_blank'><i class='fas fa-sleigh'></i> <span class='underline'>Google Slides</span></a> : <a href='https://github.com/Chef2121/DSA4213_Group45_FinalProject' target='_blank'><i class='fab fa-github'></i> <span class='underline'>GitHub</span></a></p>
+            <div><a href='https://docs.google.com/presentation/d/1_y-xKP9lkFjnJyqw6dmQyBm80iZTig3iX5IbIzEGZGc/edit?usp=sharing' target='_blank'><i class='fas fa-sleigh'></i> <span class='underline'>Google Slides</span></a> : <a href='https://github.com/Chef2121/DSA4213_Group45_FinalProject' target='_blank'><i class='fab fa-github'></i> <span class='underline'>GitHub</span></a></div>
 
             <p>NUS DSA4213: Built with Python, PyTorch, and HuggingFace Transformers for a school project: 2 BERT-variants (`longformer` + `ModernBERT`) finetuned on a dataset of political news articles and sentences to classify the political bias of the articles</p>
           </div>
@@ -105,5 +105,7 @@
             <a href="https://www.youtube.com/watch?v=ErYGBBj94p4&pp=ygUHZWF0IG1pYw%3D%3D" target='_blank'><i class='fab fa-youtube'></i> random</a>
         </div>
     </footer>
+ 
+  <script src="./script.js"></script>
   </body>
 </html>
