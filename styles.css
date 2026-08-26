@@ -286,9 +286,15 @@ a[href='#welcome-section'] {
   min-width: 300px;
 }
 
+#about a:hover {
+    color: pink;
+    /* transform: scale(1.1); */
+}
 
-
-
+#about span:hover {
+    color: pink;
+    transform: scale(1.1);
+}
 
 
 
@@ -380,7 +386,9 @@ a[href='#welcome-section'] {
 }
 .project-tile a:hover {
     color: pink;
+    
 }
+
 /* footer */
 footer {
     margin: 3em;
