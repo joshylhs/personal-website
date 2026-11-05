@@ -133,4 +133,4 @@ updateSlider();
 calculate();
 
 
-toggleDrawer(); // temp
+// toggleDrawer(); // temp
