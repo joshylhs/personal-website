@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+  </head>
+
+<body>
+  <!-- navbar -->
+  <header id='header'>
+    <div class='logo'>
+      <img id="header-img" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_HStppbIxy4drN0ER-4mzba-N2oRwd0x_S-rtDtt-0g&s=10'/>
+      <span class='logo'>LangChain</span>
+    </div>
+    <nav id="nav-bar">
+      <a class='nav-link' href='#video'>About</a>
+
+      <div class="vertical-divider"></div>
+
+      <a class='nav-link' href='#pricing'>Pricing</a>
+
+      <div class="vertical-divider"></div>
+      
+      <a class='nav-link' href='#form'>Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section id='about'>
+      <h2>About</h2>
+      <p class='subtitle'>We’re building the future of agents</p>
+      <h3>Our Mission</h3>
+      <p>We believe that LLMs are extremely powerful. They are more powerful when put to work through agents that can use data and take actions. Even though generative AI is evolving at a rapid pace, agents are still hard to make reliably good. Our mission is to figure out what the future of agents look like, and create tools that make it easy to build them.</p>
+
+      <p>We develop open source projects to stay ahead of the best patterns for building agents. Then, we incorporate these learnings into LangSmith - our commercial agent engineering platform. LangSmith helps companies understand, improve, and ship agents as fast as possible, whether they use our open source frameworks or not.</p>
+      
+      <iframe id='video' width="560" height="315" src="https://www.youtube.com/embed/IZabCqyBJLg?si=dqzHEkfbnj6g1SGv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    </section>
+
+    <hr>
+    <!-- pricing -->
+    <section id='pricing'>
+      <header class='price-header'>
+        <h2>Pricing</h2>
+        <p class='subtitle' id='price-subtitle'>Plans for teams of any size</p>
+        <p class='price-subtext'>Get access to each LangSmith service - pay for what you use.</p>
+      </header>
+
+      <div class='prices'>
+        <div class='price' id='price1'>
+          <h3 class='price-plan'>Developer</h3>
+          <p class='price-subtext 1'>For solo users getting started.</p>
+          <hr>
+          <span>
+            <p class='rate'>$0 / seat per month</p>
+            <p class='price-subtext 2'>then pay as you go</p>
+          </span>
+          <button>Start for free</button>
+          <ul>
+            <li>Up to 5k base traces / mo, then pay-as-you-go</li>
+            <li>Community support</li>
+            <li>1 seat</li>
+          </ul>
+        </div>
+
+        <div class='price' id='price2'>
+          <h3>Plus</h3>
+          <p class='price-subtext 1'>For teams building and deploying agents.</p>
+          <hr>
+          <span>
+            <p class='rate'>$39 / seat per month</p>
+            <p class='price-subtext 2'>then pay as you go</p>
+          </span>
+          <button>Sign up</button>
+          <ul>
+            <li>Up to 10k base traces / mo, then pay-as-you-go</li>
+            <li>Access to Deployment, Engine, and more</li>
+            <li>Add unlimited seats</li>
+          </ul>
+        </div>
+
+        <div class='price' id='price3'>
+          <h3>Enterprise</h3>
+          <p class='price-subtext 1'>For teams with advanced hosting, security, and support needs.</p >
+          <hr>
+          <span>
+            <p class='rate'>Custom pricing</p>
+            <!-- <p class='price-subtext 2'></p> -->
+          </span>
+          <button>Contact sales</button>
+          <ul>
+            <li>Self-hosted and hybrid deployment options</li>
+            <li>Custom SSO, ABAC, and RBAC</li>
+            <li>Support SLA</li>
+            <li>Custom seats and workspaces</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+    <!-- contact/demo -->
+    <section id='contact'>
+      <div id='form-blurb'>
+        <h2>Connect with our team</h2>
+        <p>LangSmith is the agent engineering platform, built for developers and teams who need to ship reliable agents fast.</p>
+        <ul>
+          <li>Observe and evaluate your agents</li>
+          <li>Deploy agents without the infrastructure </li>complexity
+          <li>Build no-code agents with Fleet</li>
+        </ul>
+        <p>Get in touch with our team to see how LangSmith can accelerate your agent development lifecycle. We’ll answer your questions and walk you through a tailored demo.</p>
+      </div>
+
+      <div id='form-container'><form id='form' action="https://www.freecodecamp.org/email-submit" method="POST">
+        
+        <label for='first-name' id='first-name-label'>First Name
+          <input type='text' id='first-name' required placeholder='Josh'>
+        </label>
+
+        <label for='first-name' id='last-name-label'>Last Name
+          <input type='text' id='last-name' required placeholder='Lin'>
+        </label>
+
+        <label for='email' id='email-label'>Email
+          <input name='email' id='email' type='email' placeholder='Please enter your email' required>
+        </label>
+
+        <label for='message' id='message-label'>Message
+          <textarea id='message'></textarea>
+        </label>
+
+        <input type='submit' id='submit'></input>
+      </form></div>
+    </section>
+    <hr>
+  </main>
+  
+  <footer>
+    <div id='footer1'>
+      <h3>Products</h3>
+      <a href='https://www.langchain.com/langsmith-platform' target='_blank'>LangSmith Observability</a>
+      <a href='' target='_blank'>LangSmith Platform</a>
+      <a href='' target='_blank'>LangSmith Deployment</a>
+      <a href='' target='_blank'></a>
+    </div>
+
+    <div id='footer2'>
+      <h3>Resources</h3>
+      <a href='https://www.langchain.com/langsmith-platform' target='_blank'>Blog</a>
+      <a href='' target='_blank'>Customer Stories</a>
+      <a href='' target='_blank'>Guide</a>
+    </div>
+
+    <div id='footer3'>
+      <h3>Company</h3>
+      <a href='https://www.langchain.com/langsmith-platform' target='_blank'>Careers</a>
+      <a href='' target='_blank'>Partners</a>
+      <a href='' target='_blank'>Trust Center</a>
+      <a href='' target='_blank'></a>
+    </div>
+
+    <div id='footer4'>
+      <h3 class='small'>Sign up for our newsletter to stay up to date</h3>
+      <form>
+        <input name='email' id='email' type='email' placeholder='Your email' required>
+        <button type='submit' id='submit'>Subscribe</button>
+      </form>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>

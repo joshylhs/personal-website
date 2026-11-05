@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
-    
+    <link rel="icon" type="image/x-icon" href="./images/blon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
@@ -11,14 +12,202 @@
     <link href="https://fonts.googleapis.com/css?family=Instrument+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libertinus+Math" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Redaction+20:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 
-  
   </head>
   <body>
 
+    
+
+    <!-- drawer -->
+    <div id="calc-drawer">
+      <button id="calc-btn"></button>
+
+      <div id="calc">
+       
+        <div>
+          <h2>Sourdough Pizza Ratio Calculator
+          </h2>
+          <div class="divider"></div>
+
+          <div class="row">
+            <span>Makes</span>
+            <span class="stepper"><button commandfor="pie-quantity" command="--decrement">-</button>
+            <input id="pie-quantity" placeholder=" "
+            type="number" min=1
+            inputmode="numeric" required/>
+            <button commandfor="pie-quantity" command="--increment">+</button></span>
+            <span>dough balls</span>
+          </div>
+          <small id="hint-quantity" class="hint">Enter how many dough balls!</small>
+          
+          <!-- <span>Makes <button commandfor="pie-quantity" command="--decrement">-</button>
+            <input id="pie-quantity" placeholder=" "
+            type="number" min=1
+            inputmode="numeric" required/>
+            <button commandfor="pie-quantity" command="--increment">+</button> dough balls
+            <small id="hint-quantity" class="hint">Enter how many dough balls!</small>
+          </span> -->
+
+          <!-- <div class="row bold">
+            <span>Serving size</span>
+            <span class="stepper"><button commandfor="pie-size" command="--decrement">-</button><input 
+            id="pie-size" placeholder=" "
+            list="size-list" type="number" inputmode="numeric" min=10 step=10 required /><button commandfor="pie-size" command="--increment">+</button></span>
+            <span>g</span>
+          </div>
+
+          <datalist id="size-list">
+            <option value=100>Dog</option>
+            <option value=220>Small</option>
+            <option value=270>Medium</option>
+            <option value=300>Large</option>
+            </datalist>
+          <small id="hint-size" class="hint">Enter a size (g)!</small> -->
+
+          <!-- <p class="bold">Serving size <span> <button commandfor="pie-size" command="--decrement">-</button><input 
+            id="pie-size" placeholder=" "
+            list="size-list" type="number" inputmode="numeric" min=10 step=10 required /><button commandfor="pie-size" command="--increment">+</button> g
+            <datalist id="size-list">
+            <option value=100>Dog</option>
+            <option value=220>Small</option>
+            <option value=270>Medium</option>
+            <option value=300>Large</option>
+            </datalist></span>
+          </p><small id="hint-size" class="hint">Enter a size (g)!</small> -->
+
+          <div class="row-size untouched">
+            <div class="size-head">
+              <label for="pie-size">Pie size</label>
+              <output id="size-out" for="pie-size">NIL</output>
+            </div>
+            <div class="size-track">
+              <input id="pie-size" type="range" min=10 max=400 step=10 value=270>
+              <span class="tick up"   style="--v:100">Dog</span>
+              <span class="tick down" style="--v:220">S</span>
+              <span class="tick up"   style="--v:270">M</span>
+              <span class="tick down" style="--v:300">L</span>
+            </div>
+            <small id="hint-size" class="hint">Slide to pick a size!</small>
+          </div>
+        </div>
+
+        <details open>
+          <summary>Additional Configurations</summary>
+      
+          <!-- <legend></legend> -->
+           <fieldset>
+            <label for="pie-hydration">Hydration: <span><button commandfor="pie-hydration" command="--decrement">-</button><input id="pie-hydration" type="number" value=70 min=30 max=100 inputmode="numeric" onwheel/><button commandfor="pie-hydration" command="--increment">+</button> %</span></label>
+            <div class="divider"></div>
+            <label for="pie-salt">Salt: <span><button commandfor="pie-salt" command="--decrement">-</button><input id="pie-salt" type="number" value=3.00 min=0 max=10 step=0.05 inputmode="decimal" onwheel/><button commandfor="pie-salt" command="--increment">+</button> %</span></label>
+            <div class="divider"></div>
+            <label for="pie-bf">Bread Flour: <span><button commandfor="pie-bf" command="--decrement">-</button><input id="pie-bf" type="number" min=0 max=100 value=30 inputmode="numeric" onwheel/><button commandfor="pie-bf" command="--increment">+</button> %</span></label>
+            <div class="divider"></div>
+            <label for="pie-starter">Starter: <span><button commandfor="pie-starter" command="--decrement">-</button><input id="pie-starter" type="number" min=0 max=100 value=15 inputmode="numeric" onwheel/><button commandfor="pie-starter" command="--increment">+</button> %</span></label>
+            <div class="divider"></div>
+            <label id='pie-levain'> Levain Ratio:
+              <span><input id='levain-ratio-s' value=1 min=1 type="number" onwheel/> : <input id='levain-ratio-f' value=5 min=1 type="number" onwheel/> : <input id='levain-ratio-w' value=5 min=1 type="number" onwheel/></span>
+            </label>
+          </fieldset>
+        </details>
+
+        <div class="divider large"></div>
+
+        <div class="calories-info">
+          <div class="left-container">
+            <h3 class="bold small-text">Amount per pizza</h3>
+            <p>Calories</p>
+          </div>
+          <span id="output-calories" class="bold"></span>
+        </div>
+
+        <div class="divider medium"></div>
+        <div class="daily-value small-text">
+          <p class="bold right no-divider">Weight (g)</p>
+
+          <div class="divider"></div>
+
+          <p><span class="bold">Levain</span> <output id="output-levain" class="bold">NIL</output></p>
+          <p class="indent no-divider">Starter <output id="output-levain-starter">NIL</output></p>
+          <div class="divider indent"></div>
+          <p class="indent no-divider">Flour <output id="output-levain-flour">NIL</output></p>
+          <div class="divider indent"></div>
+          <p class="indent no-divider">Water <output id="output-levain-water">NIL</output></p>
+          <div class="divider"></div>
+
+          <p><span class="bold">Total Flour Added</span> <output id="output-total-flour" class="bold">NIL</output></p>
+          <p class="indent no-divider">Pizza Flour <output id="output-pizza-flour">NIL</output></p>
+          <div class="divider indent"></div>
+          <p class="indent no-divider">Bread Flour <output id="output-bread-flour">NIL</output></p>
+          <div class="divider"></div>
+          <p><span class="bold">Water Added</span> <output id="output-water" class="bold">NIL</output></p>
+          <p class="no-divider"><span class="bold">Salt</span> <output id="output-salt" class="bold">NIL</output></p>
+
+          <!-- <div class="divider"></div> -->
+          <div class="divider large"></div>
+          
+          <p class="no-divider"><span class="bold">Total Weight</span> <output id="output-total-weight">NIL</output></p>
+
+        </div>
+        <div class="divider medium"></div>
+        <p class="note">* Contains wheat and gluten. Calories estimated!</p>
+
+      </div>
+
+      
+
+      
+
+      <!-- <label for="num-pies">Number of pies: 
+        <input id="pie-quantity"
+          type="number" 
+          min=1
+          inputmode="numeric" />
+      </label>
+
+      <label>Pie size: 
+        <input id="pie-size"
+          list="size-list"
+          type="number"
+          inputmode="numeric"
+          min=0 step=10
+          onwheel />
+        <datalist id="size-list">
+          <option value=100>Dog</option>
+          <option value=220>Small</option>
+          <option value=270>Medium</option>
+          <option value=300>Large</option>
+        </datalist>g
+      </label>
+
+      <label>Hydration: <input id="pie-hydration" type="number" value=70 min=30 inputmode="numeric" onwheel/> %</label>
+
+      <label>Salt: <input id="pie-salt" type="number" value=3.00 min=0 max=10 step=0.05 inputmode="decimal" onwheel/><span> %</span></label>
+
+      <label>Bread Flour: <input id="pie-bf" type="number" min=0 max=100 value=30 inputmode="numeric" onwheel/> %</label>
+
+      <label>Starter: <input id id="pie-starter" type="number" min=0 max=100 value=15 inputmode="numeric" onwheel/> %</label>
+
+      <label id='pie-levain'> Levain Ratio: <br>
+        <input id='levain-ratio-s' value=1 min=1 type="number" onwheel/> : <input id='levain-ratio-f' value=5 min=1 type="number" onwheel/> : <input id='levain-ratio-w' value=5 min=1 type="number" onwheel/>
+      </label> -->
+
+      
+
+      <!-- <form >
+        <h3>Send the ratio to your email!</h3>
+        <label>Email: <input type="email"></label>
+        <button>Send</button>
+      </form> -->
+      
+    
+
+
+    </div><div id="dim"></div>
+
     <header>
       <a class='nav-link' href='#welcome-section' >Josh Low</a>
-      <!-- <i class></i> -->
       <nav id='navbar'>
         <a class='nav-link' href='#about'>About</a><span>:</span> 
         <a class='nav-link' href='#project-section'>Projects</a><span>:</span> 
@@ -28,7 +217,7 @@
 
     <main>
       <section id='welcome-section'>
-        <h1>Hey I'm Josh, welcome to my website!</h1>
+        <h1 id="title">Hey I'm Josh, welcome to my website!</h1>   
       </section>
 
 
@@ -36,14 +225,14 @@
         <div id ='about-container'>
           <h2 id='about-title'>about</h2>
           
-          <p id='about-para'>I'm a data science & analytics grad from NUS, and am exploring product and AI engineering (like pretty much everyone else out there)! Since my training was in data science (e.g. ML, NLP etc.), I found myself lacking immensely in development etc., hence I try to learn and pick fullstack up in my own time.
+          <p id='about-para'>I'm a data science & analytics grad from NUS, and am exploring product and AI engineering (like pretty much everyone else out there)! Since my background was in data science (e.g. ML, NLP etc.), I found myself lacking immensely in development etc., hence I try to learn and pick fullstack up in my own time.
           
-          Anyways, outside of work, you can find me baking pies (pizzas @<a href="https://www.instagram.com/specialonioncult/" target="_blank"><i class='fas fa-pizza-slice'></i><span class='underline'>specialonioncult</span></a>), bouldering or playing the piano! Recently started running (sigh...)! Also, fun fact: I love packing + organising 🫶🏼
+          Anyways, outside of work, you can find me baking pies (pizzas @<a href="https://www.instagram.com/specialonioncult/" target="_blank"><i class='fas fa-pizza-slice'></i><span class='underline'>specialonioncult</span></a>), bouldering (<a href="https://www.instagram.com/onionclimblog/" target="_blank"><i class="fa-solid fa-mountain"></i><span class='underline'>onionclimblog</span></a>) or playing the piano! Recently started running (sigh...)! Also, fun fact: I love packing + organising 🫶🏼
 
           Also, I pretty much built this website myself for a freeCodeCamp project! (with minimal assistance from AI lol)
           </p>
         </div>
-        <img id='portrait' src="feifeiNme.jpg" alt="Photo of Josh and his dog Feifei" /> 
+        <img id='portrait' src="./images/feifeiNme.jpg" alt="Photo of Josh and his dog Feifei" /> 
         <!-- https://preview.redd.it/our-newest-rescue-fig-figlet-the-piglet-newton-v0-j6uptamwi8xe1.jpeg?width=640&crop=smart&auto=webp&s=1649d5c51530a407e96fe7e557a155213a9871e0 -->
       </section>
 
@@ -64,7 +253,7 @@
                 Political bias detection</h3>
             <div><a href='https://docs.google.com/presentation/d/1_y-xKP9lkFjnJyqw6dmQyBm80iZTig3iX5IbIzEGZGc/edit?usp=sharing' target='_blank'><i class='fas fa-sleigh'></i> <span class='underline'>Google Slides</span></a> : <a href='https://github.com/Chef2121/DSA4213_Group45_FinalProject' target='_blank'><i class='fab fa-github'></i> <span class='underline'>GitHub</span></a></div>
 
-            <p>NUS DSA4213: Built with Python, PyTorch, and HuggingFace Transformers for a school project: 2 BERT-variants (<code>longformer</code> + <code>ModernBERT</code>) finetuned on a dataset of political news articles and sentences to classify the political bias of the articles</p>
+            <p><strong>NUS DSA4213 paired project:</strong> Built with Python, PyTorch, and HuggingFace Transformers for a school project: 2 BERT-variants (<code>longformer</code> + <code>ModernBERT</code>) finetuned on a dataset of political news articles and sentences to classify and explain the political bias in articles</p>
           </div>
 
           <div class='project-tile'>
@@ -74,25 +263,30 @@
 
           <div class='project-tile'>
             <h3>Product landing page</h3>
-            <a href=''></a>
+            <a href='./landing/index.html' target='_blank'><i class="fa-solid fa-file"></i> <span class='underline'>View page</span></a>
             <p>Built with HTML+CSS for a freeCodeCamp project, pretty much copied/took inspiration from LangChain's page</p>
           </div>
 
           <div class='project-tile'>
             <h3>AgentSGX</h3>
             <a href='https://github.com/joshylhs/agentSGX' target='_blank'><i class='fab fa-github'></i> <span class='underline'>GitHub</span></a>
-            <p>NUS DSA4265 group project: Singapore-focused stock triage and research assistant for a small supported universe of SGX-listed names</p>
+            <p><strong>NUS DSA4265 group project:</strong> Singapore-focused stock triage and research assistant for a small supported universe of SGX-listed names</p>
           </div>
 
           <div class='project-tile'>
             <h3>GraphRAG for Semiconductor Supply Chain Risk Analysis</h3>
             <a href='https://github.com/joshylhs/supply-chain-naive-vs-graphrag' target='_blank'><i class='fab fa-github'></i> <span class='underline'>GitHub</span></a>
-            <p>NUS DSA4265 project: Compares 2 RAG Naive RAG and GraphRAG, for answering financial queries grounded in SEC filings, built to investigate whether encoding supplier–customer relationships as a knowledge graph outperforms naive vector-based RAG</p>
+            <p><strong>NUS DSA4265 project:</strong> Compares 2 RAG techniques (Naive RAG and GraphRAG) for answering financial queries grounded in SEC filings, built to investigate whether encoding supplier–customer relationships as a knowledge graph outperforms naive vector-based RAG</p>
           </div>
 
         </div>
-      </section>
+      </section>    
+    
+      <!-- <section id='pizza'>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRwwc3bRjgzwfG78qeun7ytVBRDu1vTwwyCmfAh6CLEhBZZ8FH2cGQ8iaIHQAucvbmGDU36uTp0WK2w/pubhtml?gid=2142305255&amp;single=true&amp;widget=true&amp;headers=false"></iframe>      
+      </section> -->
     </main>
+
 
     <footer id="contact">
         <h2>Socials+Contact</h2>
@@ -105,7 +299,10 @@
             <a href="https://www.youtube.com/watch?v=ErYGBBj94p4&pp=ygUHZWF0IG1pYw%3D%3D" target='_blank'><i class='fab fa-youtube'></i> random</a>
         </div>
     </footer>
- 
-  <script src="./script.js"></script>
+    <!-- <script  src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/TextPlugin.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrambleTextPlugin.min.js"></script>
+    <script type="module" src="./script.js"></script>
+    
   </body>
 </html>

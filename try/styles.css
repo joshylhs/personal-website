@@ -1,0 +1,49 @@
+/* Base Drawer Styling */
+.drawer {
+  height: 100vh;
+  max-width: 400px;
+  width: 80%;
+  margin: 0 0 0 auto; /* Aligns it to the right side */
+  border: none;
+  padding: 20px;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  
+  /* Animation Setup */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out, display 0.3s ease-out allow-discrete;
+}
+
+/* Open State (Native attribute added by JS .showModal()) */
+.drawer[open] {
+  transform: translateX(0);
+}
+
+/* Dimmed Backdrop (Native to <dialog>) */
+.drawer::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-out, display 0.3s ease-out allow-discrete;
+}
+
+.drawer[open]::backdrop {
+  opacity: 1;
+}
+
+/* CSS @starting-style ensures entry animations work smoothly */
+@starting-style {
+  .drawer[open] {
+    transform: translateX(100%);
+  }
+  .drawer[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/* Simple styling for the close button */
+#close-drawer {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  float: right;
+}
