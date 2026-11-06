@@ -520,13 +520,13 @@ footer div {
   z-index: 9998;
 }
 #dim.open { opacity: 1; pointer-events: auto; }
-/* #calc-drawer.open { translate: 0 0; } */
 
 #calc {
   background-color: white;
-  overflow-y: auto;
+  overflow-y: scroll;
   border: 2px solid black;
   width: 270px;
+  height: auto;
   margin: 0.5rem auto;
   padding: 0.5em;
   
